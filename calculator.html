@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #container {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container-options {
+            width: 600px;
+            background: cyan;
+        }
+
+        .class-buttons button {
+            height: 40px;
+            width: 40px;
+            margin: 20px;
+        }
+
+        .class-inputs {
+            margin: 20px;
+        }
+
+        .class-inputs .inputs-block {
+            display: inline-block;
+        }
+
+        .class-inputs .inputs-block .result {
+            height: 21.3px;
+            width: 170px;
+            border: 1px solid #000;
+            background: #fff;
+        }
+
+        .class-inputs .inputs-block label {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="container-options">
+            <div class="class-inputs">
+                <div class="inputs-block">
+                    <label>Number 1</label>
+                    <input class="inputOne" type="text">
+                </div>
+                <div class="inputs-block">
+                    <label>Number 2</label>
+                    <input class="inputTwo" type="text">
+                </div>
+                <div class="class-inputs">
+                    <div class="inputs-block">
+                        <label>Result</label>
+                        <div class="result">
+                            <output class="resultInput" name="result">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="class-buttons">
+                <button class="class-button" name="+">+</button>
+                <button class="class-button" name="-">-</button>
+                <button class="class-button" name="*">*</button>
+                <button class="class-button" name="/">/</button>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        (function calculator() {
+
+            const calculatorButtons = document.querySelectorAll(".class-button");
+
+            for (let i = 0; i < calculatorButtons.length; i++) {
+
+                let button = calculatorButtons[i];
+
+                button.addEventListener('click', function () {
+
+                    let inputOne = +document.querySelector('.inputOne').value;
+                    let inputTwo = +document.querySelector('.inputTwo').value;
+                    let result;
+
+                    if (button.name === '+') {
+                        /* console.log('plus'); */
+                        result = inputOne + inputTwo;
+                    }
+                    else if (button.name === '-') {
+                        /* console.log('minus'); */
+                        result = inputOne - inputTwo;
+                    }
+                    else if (button.name === '*') {
+                        /* console.log('multi'); */
+                        result = inputOne * inputTwo;
+                    }
+                    else if (button.name === '/') {
+                        /* console.log('division'); */
+                        result = inputOne / inputTwo;
+                    } else {
+                        console.log('error');
+                    }
+                    console.log(result);
+                    document.querySelector('.resultInput').textContent = result;
+                });
+
+            }
+        })();
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
